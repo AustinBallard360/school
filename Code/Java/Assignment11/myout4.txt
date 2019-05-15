@@ -1,0 +1,31 @@
+Choice		Action
+------		------
+E		Enter String
+Q		Quit
+?		Display Help
+
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: AB+C-D
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: AB+CD*
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: AB-CD-/EFG+H*-*
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: ABC-*EF+GH-/IJ-KL+*
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: ABC-DE-+/F*G/HI+J-*K/LM-NOP-+*W**
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: ABC-EF+/GH-/*IJ-KL+*
+What action would you like to perform?
+Please enter a string.
+No matching close parenthesis error
+What action would you like to perform?
+Please enter a string.
+The Postfix Expression is: ABC-EF+/GH-/IJ-*KL+**
+What action would you like to perform?

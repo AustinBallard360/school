@@ -1,0 +1,17 @@
+E
+(A+B)-C*D
+E
+A+B-(C*D)
+E
+((A-B)/(C-D))*E-(F+G*H)
+E
+A*(B-C)/(E+F)/G-H*((I-J)*(K+L))
+E
+((A/(B-C)+(D-E)*F)/G*(H+I)-J/K)*(L-M*N+(O-P)*W)
+E
+A*((B-C)/(E+F)/G-H)*((I-J)*(K+L))
+E
+A*(B-C)/((E+F)/G-H*((I-J)*(K+L)
+E
+(A*((B-C)/(E+F)/G-H*((I-J))*(K+L)))
+Q
