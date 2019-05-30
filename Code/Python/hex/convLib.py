@@ -113,6 +113,9 @@ def menu(count):
 	print("\n\nPlease enter a menu option!")
 	print("\t 1 => Hex to Binary")
 	print("\t 2 => Binary to Hex")
+	print("\t 3 => Binary to Decimal")
+	print("\t 4 => Decimal to Binary")
+	print("\t 5 => Decimal to Hex")
 	print("\t q => Quit the program")
 
 
@@ -125,6 +128,12 @@ def handleMenu(choice):
 		hexToBinary() # do conversion function
 	elif(choice == "2"):
 		binaryToHex()
+	elif(choice == "3"):
+		binaryToDec()
+	elif(choice == "4"):
+		decimalToBinary()
+	elif(choice == "5"):
+		decimalToHex()
 	elif(choice == "q"):
 		quit()		# quit python
 
@@ -158,10 +167,16 @@ def hexToBinary(): # take integer input and convert it to hex
 
 	print("Binary Conversion ==>: ", usrBinList)# show results
 
+def hexToDecimal():
+	x = 4
+
 def binaryToHex():
 	quitFlag = 0
-	#print("Srry but i dont do anythin yet")
-	#usrBin = input("Please give a Binary Number to convert to Hex ! \n>>")
+	posCount = 0
+	usrHexLst = [] # to be filled
+	fourNums = "" # our dictionary of binary to hex is in four digit increments, so we will "decode" four digits at a time
+	fourCount = 0; # counter to keep us on track for four nums at once
+
 	while True: # loop get input untill proper input
 		try:
 			usrBin = input("Please give a Binary Number to convert to Hex ! \n>>") # get user binary input
@@ -170,25 +185,126 @@ def binaryToHex():
 				break # quit input loop on quit
 
 			usrBinList = list(usrBin) # convert to list like [1 , 0 , 1 , ...]
-			print(usrBinList, "THIS IS UR INPUT PEPE HANDS")
+			lstSize = len(usrBinList) # get size of users input as list
+			lstRemainder = lstSize % 4 # check if neatly breaks into increments of four
+			if (lstRemainder != 0): # if not increments of four
+				while posCount < 4-lstRemainder: # do until is four
+					usrBinList.insert(0 , "0") # add zeroes on the front 1 ---> 0001 ## for dictionary conversion of bin2Hex
+					posCount += 1 # count
+
 			for x in usrBinList: # go thru each input check for == 1 || 0 only
-				print(type(x), "thats x type foooo")
-				if(x != "1" | "0"):
-					print(x , type(x) , "WHAT THE HECKERS ?!")
+				
+				fourCount+=1 # count
+				fourNums = fourNums + x # string concat list items
+				if(fourCount == 4): # if four in block
+					usrHexLst.append(bin2Hex[fourNums]) # fill up user output list with dictionary conversion of 4 digits
+					fourCount = 0 # reset 4 count
+					fourNums = "" # reset fourString
+
+				if(x != '1' and x != '0'): # check for bad input
 					raise Exception("NotBinary") # throw error for bad input
+
 			break # if for loop completes without any NotBinary exception, break out of While True loop
 
-		except Exception as errr:
-			print(errr , "Input was not proper binary, please use only 1 OR 0\n\n") # print error, ==> retake input again
+		except Exception as errr: #any errors, catch them
+			print(errr , " Error, Input was not proper binary, please use only 1 OR 0\n\n") # print error, ==> retake input again
+
+		
 
 	if (quitFlag == 1): # check flag to quit program
 		quit() 
-	print(usrBinList)
+	print("Given Binary Number ==> " , usrBinList) # show them their input
+	print("Conversion to Hex ==> ", usrHexLst) # show them their output
 
+def binaryToDec():
+	binCount = 1
+	decTotal = 0
+	errorFlag = 0
+	usrBinList = []
 
+	while True: # loop get input untill proper input
+		try:
+			usrBin = input("Please give a Binary Number to convert to Decimal ! \n>>") # get user binary input
+			if(usrBin == "q"): # QUIT MID INPUT BLOCK
+				quitFlag = 1
+				errorFlag = 1
+				break # quit input loop on quit
 
+			usrBinList = list(usrBin) # convert to list like [1 , 0 , 1 , ...]
+			for x in usrBinList:
+				if(x != '1' and x != '0'): # check for bad input
+					raise Exception("NotBinary, use 1 and 0 please") # throw error for bad input
+					break
+				decTotal += int(x) * (2 ** (len(usrBinList) - binCount )) # math to get decimal from binary
+				binCount += 1
+			break
 
+		except Exception as error:
+			print("You recieved an error, its this ------> " , error)
+			errorFlag = 1
+			break
 
+	if(errorFlag != 1):
+		print("Given Binary Number ==> " , usrBinList) # show them their input
+		print("Conversion to Decimal ==> ", decTotal) # show them their output
+
+def decimalToBinary():
+	errorFlag = 0
+	usrDec = 0
+	usrBinLst = []
+	usrOriginal = 0
+	while True: # loop get input untill proper input
+		try:
+			usrDec = int(input("Please give a Integer to convert to Binary! \n>>")) # get user binary input
+			usrOriginal = usrDec
+			if(usrDec == "q"): # QUIT MID INPUT BLOCK
+				quitFlag = 1
+				errorFlag = 1
+				break # quit input loop on quit
+			print("usrDec is ==> ", usrDec)
+			if(usrDec == 0): # zero case
+				usrBinLst.append(0) # return zero
+			while(usrDec != 0 ): # divide by two until users number is 0
+				decModTwo = usrDec % 2 # result to be stored
+				usrDec =  usrDec // 2  # next to be operated
+				usrBinLst.insert(0 , decModTwo) # insert result as most significant bit 
+			print("Given Decimal ==>  " , usrOriginal) # display original input
+			print("Conversion to Binary ==> ", usrBinLst) # display binary results
+			break
+
+		except Exception as error:
+			print("You recieved an error, its this ------> " , error)
+			errorFlag = 1
+			break
+
+def decimalToHex():
+	errorFlag = 0
+	usrDec = 0
+	usrOriginal = 0
+	usrHexLst = []
+	while True: # loop get input untill proper input
+		try:
+			usrDec = int(input("Please give a Integer to convert to Binary! \n>>")) # get user binary input
+			usrOriginal = usrDec
+			if(usrDec == "q"): # QUIT MID INPUT BLOCK
+				quitFlag = 1
+				errorFlag = 1
+				break # quit input loop on quit
+			if(usrDec == 0): # zero case
+				usrHexLst.append(0) # return zero
+			while(usrDec != 0 ): # divide by two until users number is 0
+				decModTwo = usrDec % 16 # result to be stored
+				hexOut = dec2Hex[str(decModTwo)]
+				usrDec =  usrDec // 16  # next to be operated
+				usrHexLst.insert(0 , hexOut) # insert result as most significant bit 
+			print("Given Decimal ==>  " , usrOriginal) # display original input
+			print("Conversion to Hex ==> ", usrHexLst) # display hex results
+			break
+
+		except Exception as error:
+			print("You recieved an error, its this ------> " , error)
+			errorFlag = 1
+			break
 
 
 
