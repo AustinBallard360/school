@@ -112,10 +112,11 @@ def menu(count):
 		print("\n\nWelcome to Hex Converter!")
 	print("\n\nPlease enter a menu option!")
 	print("\t 1 => Hex to Binary")
-	print("\t 2 => Binary to Hex")
-	print("\t 3 => Binary to Decimal")
-	print("\t 4 => Decimal to Binary")
-	print("\t 5 => Decimal to Hex")
+	print("\t 2 => Hex to Decimal")
+	print("\t 3 => Binary to Hex")
+	print("\t 4 => Binary to Decimal")
+	print("\t 5 => Decimal to Binary")
+	print("\t 6 => Decimal to Hex")
 	print("\t q => Quit the program")
 
 
@@ -126,13 +127,15 @@ def menu(count):
 def handleMenu(choice):
 	if(choice == "1"):
 		hexToBinary() # do conversion function
-	elif(choice == "2"):
-		binaryToHex()
+	elif(choice =="2"):
+		hexToDecimal()
 	elif(choice == "3"):
-		binaryToDec()
+		binaryToHex()
 	elif(choice == "4"):
-		decimalToBinary()
+		binaryToDec()
 	elif(choice == "5"):
+		decimalToBinary()
+	elif(choice == "6"):
 		decimalToHex()
 	elif(choice == "q"):
 		quit()		# quit python
@@ -167,8 +170,33 @@ def hexToBinary(): # take integer input and convert it to hex
 
 	print("Binary Conversion ==>: ", usrBinList)# show results
 
+
 def hexToDecimal():
-	x = 4
+	usrHexLst = []
+	usrHex = '0'
+	decOut = 0;
+	hexNumInt = 0
+	hexCount = 1;
+
+	while True:
+		try:
+			usrHex = input("Enter a Hex number for conversion\n>>");
+			if(usrHex == "q"):
+				#quitflag here?
+				break
+			usrHexLst = list(usrHex)
+
+			for hexNum in usrHexLst:
+				hexNumInt = int(hex2Dec[hexNum])
+				decOut += hexNumInt * (16 ** (len(usrHexLst) - hexCount )) # math to get decimal from binary
+				hexCount +=1
+			print("Given Hex ===> ",usrHex)
+			print("Conversion to Decimal ===> ",decOut)
+			break
+
+		except Exception as error:
+			print("You have an error! it is ==> ", error)
+
 
 def binaryToHex():
 	quitFlag = 0
@@ -261,7 +289,6 @@ def decimalToBinary():
 				quitFlag = 1
 				errorFlag = 1
 				break # quit input loop on quit
-			print("usrDec is ==> ", usrDec)
 			if(usrDec == 0): # zero case
 				usrBinLst.append(0) # return zero
 			while(usrDec != 0 ): # divide by two until users number is 0
