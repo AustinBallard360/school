@@ -149,11 +149,13 @@ def hexToBinary(): # take integer input and convert it to hex
 			if(userHex == "q"):
 				quitFlag = 1
 				break
-			#print("Your Hex Numer ==> : ", userHex) # check for input	
 			userHexList = list(userHex.lower()) 
 			for x in range(len(userHexList)): # SANITIZE ?
-				if userHexList[x] in ['g', 'h' , 'i' , 'j', 'k' , 'l' , 'm', 'n' , 'o' , 'p', 'q', 'r','s','t','u','v','w','y','z',' ','!','@','#','$','%','^','&','*','(',')','{','}']:
-						raise Exception("notHex")
+				#if userHexList[x] in ['g', 'h' , 'i' , 'j', 'k' , 'l' , 'm', 'n' , 'o' , 'p', 'q', 'r','s','t','u','v','w','y','z',' ','!','@','#','$','%','^','&','*','(',')','{','}']:
+				if userHexList[x] in ['a' , 'b' , 'c' , 'd' , 'e' , 'f' , '0', '1' , '2' , '3' , '4' ,'5','6','7','8','9']: # better to check for acceptable inputs duh
+					break
+				else:
+					raise Exception("notHex")
 			break
 		except:
 			print("Input was not proper Hex Format, Hex Values include 0-9 and A-F\n\n")
@@ -184,7 +186,7 @@ def hexToDecimal():
 			if(usrHex == "q"):
 				#quitflag here?
 				break
-			usrHexLst = list(usrHex)
+			usrHexLst = list(usrHex.lower()) #lowercase letters only. ignores numbers. 
 
 			for hexNum in usrHexLst:
 				hexNumInt = int(hex2Dec[hexNum])
