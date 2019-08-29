@@ -1,0 +1,50 @@
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+}
+
+#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+COLOR_ROOT='\[\e[1;31m\]'
+COLOR_USER='\[\e[1;32m\]'
+COLOR_SUDO='\[\e[1;33m\]'
+COLOR_RESET='\[\e[0m\]'
+COLOR_BLUE='\[\e[1;34m\]'
+COLOR_RED='\[\e[1;31m\]'
+
+## ORIGINAL
+PS1=${COLOR_BLUE}$(hostname)${COLOR_RESET}:['\w '${COLOR_RED}'$(parse_git_branch)'${COLOR_RESET}]' '
+
+#alias grep so it uses the w/ color flag each time. ( adds red color to things found via grep)
+alias grep='grep --color=auto ';
+#alias for switching to school directories
+alias fall="cd ~/Dropbox/2019/fall";
+alias ssrc="cd ~/Dropbox/src/school/Code/";
+
+
+# ANDREAS PS1 I MADE 
+#PS1="\[\033[0;34m\]\u@\h\[\033[1;32m\][\w]\[\033[1;31m\]$: \[\033[0m\] "
+
+export CLICOLOR=1
+# should add color coding to directories
+
+#custom colors for ls
+# see ~/.color_code_key for info
+export LSCOLORS=GxfxxxExbxxxxxbxbxExEx
+
+#add scripts folder to path
+PATH="$PATH:$HOME/src/scripts";
+
+function chrome { #open chrome from commandline
+	if [ -z "$1" ]; then # if no argument passed 
+		open -a "Google Chrome" "https://www.google.com"; # go to google
+	else
+		if [[ "$1" == "http"* ]]; then
+			open -a "Google Chrome" "$1";
+		else
+			open -a "Google Chrome" "http://$1"; # or go to provided link
+		fi
+	fi
+}

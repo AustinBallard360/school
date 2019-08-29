@@ -1,0 +1,58 @@
+#! /bin/bash
+
+#### NEED TO FIGURE OUT HOW TO ADD MULTIPLE SLASHES PER ECHO DEPENDING ON $colsPerRow
+
+#echo "THE ARGUMENTS PASSED TO $0 INCLUDE  $1 $2 $3 $4";
+tower="X"; #this is our base letter of our tower
+for argx in "$@"; do
+	if [[ $argx = "--help" || $argx = "--h" || $argx =  "-h" || $argx =  "help" ]]; then
+		echo -e "\n****************\nWelcome to the help menu,\n this program takes parameters,\n and you dont need any help.\n it doesnt do anything\n dont be afraid\n\n****************";
+	else
+		tower=$argx; #argument will be the "base" of our tower
+		#echo "$argx";
+	fi
+done
+infoCounter=0;
+newcount=0; # counter
+linesCounted=3;
+countDivis=2 # modulus
+rows=$(tput lines); # get console size
+cols=$(tput cols); # get console size
+colsPerRow=$(($cols / $rows)); # how many columns per row according to console size
+colCount=0;
+	until (( $rows < linesCounted)); do
+		until(( $colsPerRow < $colCount )); do
+			modulito=$((newcount % countDivis ));
+			if [[ $modulito = 0 ]]; then
+				tower="$tower/";
+				newcount=$((newcount+1));
+				((colCount++));
+			else
+				tower="$tower\\";
+				((colCount++));
+				newcount=$((newcount+1));
+			fi
+		done
+		linesCounted=$((linesCounted+1 ));
+		echo $tower;
+		infoCounter=$((infocounter++));
+		colCount=1;
+	done
+	echo "rows is $rows cols is $cols colsPerRow is $colsPerRow INFOCOUNTER = $infocounter";
+
+
+##TODO## 
+# /\/\/\/\/\/\/\
+# /\/\/\/\/\/\/
+# /\/\/\/\/\/\
+# /\/\/\/\/\/
+# /\/\/\/\/\
+# /\/\/\/\
+#/\/\/\/\
+# MAKE PYRANMID DECREASE
+### HOW TO DO SUBSTRING EXTRACT
+# v="some string.rtf"
+
+# v2=${v::-4}
+
+# echo "$v --> $v2"
