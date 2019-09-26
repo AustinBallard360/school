@@ -1,0 +1,66 @@
+Choice		Action
+------		------
+A		Add Food
+D		Search food by ID
+C		Search food by Category and Name
+L		List Food
+O		Sort Food by ID
+P		Sort Food by Category and Name
+Q		Quit
+R		Remove Food by ID
+S		Remove Food by Category and Name
+T		Close Grocery Store
+U		Write Text to File
+V		Read Text from File
+W		Serialize GroceryStore to File
+X		Deserialize GroceryStore from File
+?		Display Help
+
+What action would you like to perform?
+Please enter the food category to add:
+Please enter the food's name to add:
+Please enter the food ID to add:
+Food added
+What action would you like to perform?
+Please enter the food category to add:
+Please enter the food's name to add:
+Please enter the food ID to add:
+Food added
+What action would you like to perform?
+Please enter the food category to add:
+Please enter the food's name to add:
+Please enter the food ID to add:
+Food added
+What action would you like to perform?
+Please enter the food category to add:
+Please enter the food's name to add:
+Please enter the food ID to add:
+Food added
+What action would you like to perform?
+Please enter the food category to add:
+Please enter the food's name to add:
+Please enter the food ID to add:
+Food added
+What action would you like to perform?
+Category: Dairy		Name: Milk		ID: 30001
+Category: Vegie		Name: Brocolli		ID: 20032
+Category: Fruit		Name: Orange		ID: 10014
+Category: Dairy		Name: Butter		ID: 30024
+Category: Fruit		Name: Apple		ID: 10025
+What action would you like to perform?
+sorted by categories and names
+What action would you like to perform?
+Category: Dairy		Name: Butter		ID: 30024
+Category: Dairy		Name: Milk		ID: 30001
+Category: Fruit		Name: Apple		ID: 10025
+Category: Fruit		Name: Orange		ID: 10014
+Category: Vegie		Name: Brocolli		ID: 20032
+What action would you like to perform?
+sorted by id
+What action would you like to perform?
+Category: Fruit		Name: Orange		ID: 10014
+Category: Fruit		Name: Apple		ID: 10025
+Category: Vegie		Name: Brocolli		ID: 20032
+Category: Dairy		Name: Milk		ID: 30001
+Category: Dairy		Name: Butter		ID: 30024
+What action would you like to perform?

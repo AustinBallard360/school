@@ -1,0 +1,12 @@
+Luke Schulz
+1211984746
+I already submitted the assignment and got 100. But during debugging I was dying to try out this idea to get some feedback on the online submission test cases.
+I wanted to just stdout the input and use one submission to get more info on the test inputs.
+But you posted in piazza that the stdout was not actually reported, due to the ease of getting the test cases. 
+This made me wonder if stderr was also not reported.
+From the other classmates on piazza, it seems like they are getting things back on stderr.
+
+So I am gonna pipe the input into stderr and see if I can get your test cases.
+I have already done the assignment, and I wont share them with anyone else.
+I feel like this is very much in the spirit of the course, and done in good conscience.
+

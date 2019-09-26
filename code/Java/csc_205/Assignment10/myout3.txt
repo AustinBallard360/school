@@ -1,0 +1,115 @@
+Choice		Action
+------		------
+L		List Current Size
+C		Search Element
+I		Insert Element by Index
+G		Get Element by Index
+S		Set Element by Index
+R		Remove Element by Index
+H		Count How Many
+D		Remove Duplicates
+F		Insert at the Front
+B		Insert Before
+E		Append at the End
+A		Append After
+V		Reverse First Few
+P		Print Linked List
+Q		Quit
+?		Display Help
+
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Fox is inserted at index 0
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Dog is inserted at index 1
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Bull is inserted at index 2
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Fish is inserted at index 3
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Cow is inserted at index 4
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Dog is inserted at index 5
+
+What action would you like to perform?
+{ Fox Dog Bull Fish Cow Dog }
+
+What action would you like to perform?
+The current size is 6
+
+What action would you like to perform?
+Please enter a string to insert in front of the list:
+Please enter the number of times you want to insert:
+Lion is inserted 3 times in front of the linked list
+
+What action would you like to perform?
+{ Lion Lion Lion Fox Dog Bull Fish Cow Dog }
+
+What action would you like to perform?
+The current size is 9
+
+What action would you like to perform?
+Which string do you want to insert before:
+Please enter the string you want to insert:
+Hen is inserted before Wolf
+
+What action would you like to perform?
+{ Hen Lion Lion Lion Fox Dog Bull Fish Cow Dog }
+
+What action would you like to perform?
+Which string do you want to insert before:
+Please enter the string you want to insert:
+Lion is inserted before Cow
+
+What action would you like to perform?
+{ Hen Lion Lion Lion Fox Dog Bull Fish Cow Lion Dog }
+
+What action would you like to perform?
+Please enter a string to remove:
+Dog is removed from the linked list
+
+What action would you like to perform?
+{ Hen Lion Lion Lion Fox Bull Fish Cow Lion }
+
+What action would you like to perform?
+Which string do you want to append after:
+Please enter the string you want to append:
+Hen is appended after Fox
+
+What action would you like to perform?
+{ Hen Lion Lion Lion Fox Bull Hen Fish Cow Lion }
+
+What action would you like to perform?
+Which string do you want to append after:
+Please enter the string you want to append:
+Deer is appended after Lion
+
+What action would you like to perform?
+{ Hen Lion Lion Deer Lion Fox Bull Hen Fish Cow Lion }
+
+What action would you like to perform?
+Please enter a string to append at the end:
+Please enter the number of times you want to append:
+Deer is appended 4 times at end of the linked list
+
+What action would you like to perform?
+{ Hen Lion Lion Deer Lion Fox Bull Hen Fish Cow Lion Deer Lion Lion Lion }
+
+What action would you like to perform?

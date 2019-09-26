@@ -1,0 +1,78 @@
+Choice		Action
+------		------
+L		List Current Size
+C		Search Element
+I		Insert Element by Index
+G		Get Element by Index
+S		Set Element by Index
+R		Remove Element by Index
+H		Count How Many
+D		Remove Duplicates
+F		Insert at the Front
+B		Insert Before
+E		Append at the End
+A		Append After
+V		Reverse First Few
+P		Print Linked List
+Q		Quit
+?		Display Help
+
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Cat is inserted at index 0
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Dog is inserted at index 1
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Bird is inserted at index 2
+
+What action would you like to perform?
+Please enter a string to add:
+Please enter an index to add:
+Fox is inserted at index 3
+
+What action would you like to perform?
+{ Cat Dog Bird Fox }
+
+What action would you like to perform?
+The current size is 4
+
+What action would you like to perform?
+Please enter a string to search:
+Cat found at index 0
+
+What action would you like to perform?
+Please enter a string to search:
+Fish not found
+
+What action would you like to perform?
+Please enter an index to remove:
+string at index 3 is removed
+
+What action would you like to perform?
+Please enter an index to remove:
+string at index 0 is removed
+
+What action would you like to perform?
+{ Dog Bird }
+
+What action would you like to perform?
+Please enter an index to search:
+string at index 0 is Dog
+
+What action would you like to perform?
+Please enter a new string to set:
+Please enter an index to set:
+Lion is set at index 0
+
+What action would you like to perform?
+{ Lion Bird }
+
+What action would you like to perform?
