@@ -11,8 +11,8 @@ int arrSize = sizeof(arrMin2Max) / sizeof(10); // get size of array / /we gonna 
 
 void heapify( int arr[] ,int i ,int n){ // array, index, sizeofarray
 	int largest = i; // assume current index is the largest?
-	int l = 2*i; // left node
-	int r = (2*i)+1; // right node
+	int l = (2*i)+1; // left node
+	int r = (2*i)+2; // right node
 
 	if( l < n  && arr[l] > arr[largest] ){ // if element is larger than its parent, and is real element.
 		// could do && left(i) != -1 // and actually use my functions hmmmmmmmm
@@ -103,5 +103,10 @@ int main(){
 	printHeap(arrMin2Max, arrSize);
 	printFamily(arrMin2Max , arrSize);
 	printHeap(arrMin2Max, arrSize);
+
+	// show all arrays sorted
+	printHeap(arrMin2Max , arrSize);
+	printHeap(arrMax2Min , arrSize);
+	printHeap(arrRandom , arrSize);
 	return 0;
 }
