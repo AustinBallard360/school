@@ -56,14 +56,12 @@ alphaNumerSet.add(" ")
 for charx in string.punctuation:
 	alphaNumerSet.add(charx)
 
-print(alphaNumerSet)
 
-
-teststr = encode(encrypt("this is a test", "12"))
-print(teststr);
-dectestsr = decode(teststr)
-print(dectestsr)
-print(encrypt(dectestsr , "12"))
+# teststr = encode(encrypt("this is a test", "12"))
+# print(teststr);
+# dectestsr = decode(teststr)
+# print(dectestsr)
+# print(encrypt(dectestsr , "12"))
 
 # for x in alphaNumerSet:
 # 	key = x
