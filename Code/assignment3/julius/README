@@ -1,0 +1,12 @@
+Luke Schulz
+1211984746
+tu-th 12:00pm
+
+First I figured out how to use the decode, encrypt, encode functions.
+Once convinced I was translating properly, I made a for-loop range(0x100)
+(printing a divider and the key used for each translation)
+printed out each of the 256 possible translations.
+scrolled my happy self thru the list untill I saw some english.
+noted the key.
+re-tested with a specific use of that key, instead of a general loop
+called it a day.
