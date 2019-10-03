@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-echo "SSH into Bandits @ lvl $1"
-ssh -p 2220 "bandit$1@bandit.labs.overthewire.org"
