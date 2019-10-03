@@ -16,22 +16,6 @@ def encrypt(cleartext, key):
         to_return[i] = ord(cleartext[i]) ^ ord(key[i % len(key)])
     return str(to_return)
 
-# def encryptX(cleartext , key):
-# 	counter =0;
-# 	to_return = bytearray(len(cleartext))
-# 	for i in xrange(len(cleartext)):
-# 	    prereturn = ord(cleartext[i]) ^ ord(key[i % len(key)]) # gives an int
-# 	    if chr(prereturn) not in alphaNumerSet:
-# 	    	to_return[i] = 0
-# 	    	counter+=1
-# 	    	print(counter)
-# 	    	#print("Failing char is "+chr(prereturn))
-# 	    	if(counter >3): # allow 10 errors
-# 	    		print("I failed")
-# 	    		return None # stop in tracks
-# 	    else:
-# 	   		to_return[i] = prereturn
-# 	return str(to_return)
 
 def encryptXSmoll(cleartext , key , size):
 	counter =0;
@@ -41,30 +25,55 @@ def encryptXSmoll(cleartext , key , size):
 	    if chr(prereturn) not in alphaNumerSet:
 	    	to_return[i] = 0
 	    	counter+=1
-	    	if(counter >3): # allow 10 errors
+	    	if(counter >0): # allow 10 errors
 	    		return None # stop in tracks
 	    else:
 	   		to_return[i] = prereturn
 	return str(to_return)
-# def printSolution(keyx):
-# 	out = encrypt(decodedAlanTxt , keyx)
-# 	if (out == None):
-# 		return
-# 	else:
-# 		print("Key => "+keyx + "  "+out)
-# 		#print(out)
 
 
 
 def printXSolutionSmoll(keyx):
-	out = encryptXSmoll(decodedAlanTxt , keyx , 50)
+	out = encryptXSmoll(decodedAlanTxt , keyx , 10)
 	if (out == None):
 		return
 	else:
-		print("Key => "+keyx +"   "+out)
+		print("Key => "+keyx+"  VAL=> "+out)
+
 		#print(out)
+# def saveKeys(idx , char):
+# 	if (idx==10):
+# 		set10.add(char)
+# 	elif (idx==9):
+# 		set9.add(char)
+# 	elif(idx==8):
+# 		set8.add(char)
+# 	elif(idx==7):
+# 		set7.add(char)
+# 	elif(idx==6):
+# 		set6.add(char)
+# 	elif(idx==5):
+# 		set5.add(char)
+# 	elif(idx==4):
+# 		set4.add(char)
+# 	elif(idx==3):
+# 		set3.add(char)
+# 	elif(idx==2):
+# 		set2.add(char)
+# 	elif(idx==1):
+# 		set1.add(char)
 
 
+# set1=set("")
+# set2=set("")
+# set3=set("")
+# set4=set("")
+# set5=set("")
+# set6=set("")
+# set7=set("")
+# set8=set("")
+# set9=set("")
+# set10=set("")
 txtSize = 100;
 alanFile = open("alan.txt" , "r")
 alanTxt = alanFile.read()
@@ -77,52 +86,50 @@ for charx in string.punctuation:
 	alphaNumerSet.add(charx)
 
 
-# teststr = encode(encrypt("this is a test", "12"))
-# print(teststr);
-# dectestsr = decode(teststr)
-# print(dectestsr)
-# print(encrypt(dectestsr , "12"))
-
-# for x in alphaNumerSet:
-# 	key = x
-# 	printXSolution(key , dectestsr)
-# 	for y in alphaNumerSet:
-# 		key = x+y
-# 		printXSolution(key , dectestsr)
-
-# print(alphaNumerSet)
-
+progress=0
 for x in alphaNumerSet:
-	key = x
-	printXSolutionSmoll(key)
+	progress+=1
+	print("progress is "+str(progress) +" / "+str(len(alphaNumerSet)))
+	#key = x
+	#printXSolutionSmoll(key , 1)
 	for y in alphaNumerSet:
-		key = x+y
-		printXSolutionSmoll(key)
+		#key = x+y
+		#printXSolutionSmoll(key , 2)
 		for z in alphaNumerSet:
-			key =x+y+z
-			printXSolutionSmoll(key)
+			#key =x+y+z
+			#printXSolutionSmoll(key , 3)
 			for p in alphaNumerSet:
-				key = x+y+z+p
-				printXSolutionSmoll(key)
-
+				#key = x+y+z+p
+				#printXSolutionSmoll(key)
+				for q in alphaNumerSet:
+					key = x+y+z+p+q
+					printXSolutionSmoll(key)
 
 # for x in alphaNumerSet:
 # 	key = x
-# 	printSolution(key)
+# 	printXSolutionSmoll(key , 1)
+# 	#makes set1
+
+# for x in set1:
 # 	for y in alphaNumerSet:
 # 		key = x+y
-# 		printSolution(key)
+# 		printXSolutionSmoll(key , 2)
+# 		# makes set2
+
+# for x in set1:
+# 	for y in set2:
 # 		for z in alphaNumerSet:
-# 			key =x+y+z
-# 			printSolution(key)
-		# 	for q in alphaNumerSet:
-		# 		key =x+y+z+q
-		# 		printSolution(key)
-# 				for p in alphaNumerSet:
-# 					key = x+y+z+q+p
-# 					printSolution(key)
+# 			key = x+y+z
+# 			printXSolutionSmoll(key , 3)
 
 
+
+# print("SET 1  " +str(set1))
+# print(" SPACER ------------"+str(len(set1)))
+# print("SET 2  " +str(set2))
+# print(" SPACER ------------"+str(len(set2)))
+# print("SET 3  " +str(set3))
+# print(" SPACER ------------"+str(len(set3)))
 
 
 

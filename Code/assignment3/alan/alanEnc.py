@@ -88,5 +88,6 @@ def printSolution(keyx):
 		print(potentialOutput);
 
 #twoDigitKeys();
-encryptX(decodedAlanTxt , "12")
+#encryptX(decodedAlanTxt , "12")
+print(decodedAlanTxt)
 
