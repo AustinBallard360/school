@@ -33,47 +33,22 @@ def encryptXSmoll(cleartext , key , size):
 
 
 
-def printXSolutionSmoll(keyx):
-	out = encryptXSmoll(decodedAlanTxt , keyx , 10)
+def printXSolutionSmoll(keyx , size):
+	out = encryptXSmoll(decodedAlanTxt , keyx , size)
 	if (out == None):
-		return
+		return None
 	else:
 		print("Key => "+keyx+"  VAL=> "+out)
-
-		#print(out)
-# def saveKeys(idx , char):
-# 	if (idx==10):
-# 		set10.add(char)
-# 	elif (idx==9):
-# 		set9.add(char)
-# 	elif(idx==8):
-# 		set8.add(char)
-# 	elif(idx==7):
-# 		set7.add(char)
-# 	elif(idx==6):
-# 		set6.add(char)
-# 	elif(idx==5):
-# 		set5.add(char)
-# 	elif(idx==4):
-# 		set4.add(char)
-# 	elif(idx==3):
-# 		set3.add(char)
-# 	elif(idx==2):
-# 		set2.add(char)
-# 	elif(idx==1):
-# 		set1.add(char)
+		return 1
+def checkXSolutionSmoll(keyx , size):
+	out = encryptXSmoll(decodedAlanTxt , keyx , size)
+	if (out == None):
+		return None
+	else:
+		return 1
 
 
-# set1=set("")
-# set2=set("")
-# set3=set("")
-# set4=set("")
-# set5=set("")
-# set6=set("")
-# set7=set("")
-# set8=set("")
-# set9=set("")
-# set10=set("")
+
 txtSize = 100;
 alanFile = open("alan.txt" , "r")
 alanTxt = alanFile.read()
@@ -88,48 +63,57 @@ for charx in string.punctuation:
 
 progress=0
 for x in alphaNumerSet:
+	uncheckedY = True
+	uncheckedZ = True
+	uncheckedP = True
+	uncheckedQ = True
+
+	key = x;
 	progress+=1
 	print("progress is "+str(progress) +" / "+str(len(alphaNumerSet)))
-	#key = x
-	#printXSolutionSmoll(key , 1)
+
+	if(checkXSolutionSmoll(key , 1) == None ):
+		print("continue 1" + key + str(len(key)))
+		continue
+
 	for y in alphaNumerSet:
-		#key = x+y
-		#printXSolutionSmoll(key , 2)
+		key = x+y
+		if uncheckedY == True:
+			uncheckedY = False;
+			uncheckedZ = True
+			if(checkXSolutionSmoll(key , 1) == None):
+				print("fail 2" + key + str(len(key)))
+				break
+			
 		for z in alphaNumerSet:
-			#key =x+y+z
-			#printXSolutionSmoll(key , 3)
+			key = x+y+z
+			if(uncheckedZ == True):
+				uncheckedZ = False
+				uncheckedP = True
+				uncheckedY = True
+				if(checkXSolutionSmoll(key , 2) == None):
+					break
+				
 			for p in alphaNumerSet:
-				#key = x+y+z+p
-				#printXSolutionSmoll(key)
+				key = x+y+z+p 
+				if(uncheckedP == True):
+					uncheckedP = False
+					uncheckedQ = True
+					uncheckedZ = True
+					if(checkXSolutionSmoll(key , 3) == None):
+						#print("fail 4" + key + str(len(key)))
+						break
+					
 				for q in alphaNumerSet:
 					key = x+y+z+p+q
-					printXSolutionSmoll(key)
+					if(uncheckedQ == True):
+						uncheckedQ = False
+						uncheckedP = True
+						if(checkXSolutionSmoll(key , 4) == None):
+							break
+						
+					printXSolutionSmoll(key , 100)
 
-# for x in alphaNumerSet:
-# 	key = x
-# 	printXSolutionSmoll(key , 1)
-# 	#makes set1
-
-# for x in set1:
-# 	for y in alphaNumerSet:
-# 		key = x+y
-# 		printXSolutionSmoll(key , 2)
-# 		# makes set2
-
-# for x in set1:
-# 	for y in set2:
-# 		for z in alphaNumerSet:
-# 			key = x+y+z
-# 			printXSolutionSmoll(key , 3)
-
-
-
-# print("SET 1  " +str(set1))
-# print(" SPACER ------------"+str(len(set1)))
-# print("SET 2  " +str(set2))
-# print(" SPACER ------------"+str(len(set2)))
-# print("SET 3  " +str(set3))
-# print(" SPACER ------------"+str(len(set3)))
 
 
 
