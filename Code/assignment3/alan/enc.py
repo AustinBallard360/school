@@ -25,7 +25,7 @@ def encryptXSmoll(cleartext , key , size):
 	    if chr(prereturn) not in alphaNumerSet:
 	    	to_return[i] = 0
 	    	counter+=1
-	    	if(counter >0): # allow 10 errors
+	    	if(counter >5): # allow 10 errors
 	    		return None # stop in tracks
 	    else:
 	   		to_return[i] = prereturn

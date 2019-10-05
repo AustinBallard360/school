@@ -1,0 +1,46 @@
+Luke Schulz
+1211984746
+ALAN key
+key is +X,gk
+
+So I approached this problem using ony my knowledge of programming.
+In retrospect, I should have applied to tools from the slides / lecture and saved myself a ton of work.
+
+I attempted literally so many things I cant explain them all but I will give the gist.
+brute force becomes untennable quickly. First challenge was too much output to sift thru.
+
+Solved by omitting any output without printable characters, used strings.printable set in python
+
+Second challenge was too much processing required, run times > 10 minutes ( the longest being 12+ hours and counting)
+
+tried to shorten the processing by doing things like, for key length = X , only process X chars of the text
+discard any subloops on keys which produce non printable characters.
+break encryption function on getting an unprintable char etc.
+
+this brought the runtimes down a lot but was still bigger than anything i've come across previously.
+
+it was at this point i broke down and consulted the slides.
+
+Learned that finding the period is pretty easy, was quickly convinced it was 5.
+
+key period 5 was just barely inside the range of my brute force efforts. At length six I think it would be untennable.
+
+i learned that my desktop machine has 8 threads (desktop at home) and only one of them will run any given python script
+
+looked into multi-threading for the first time, was introduced in python 3 so i dropped it.
+
+I tried a couple iterations of brute forcing a five key solution using all the tricks for preventing garbage output and reducing processing
+was still coming up with solutions like 5*70^5 operations minimum
+
+decided to let a couple of these run overnight and redirect output to file for processing later
+
+when i finally started to get output, the message was becoming clear. a 4/5 key solution is almost readable.
+I did a little bit of compare and contrast, and figured out the latter 4/5th of the key.
+
+The final program was just a simple for loop of all possible characters for the first key position, with the good 4/5 keys.
+included as (smart.py)
+
+my code is all hacked to crap and in a bunch of different files at this point. long story short it was a mess but I basically brute forced it.
+but more like a strategic force, not truely brute.
+
+one of my outputs to file is 22GB and counting XD
