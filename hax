@@ -1,0 +1,1 @@
+nmap -sC -sV 127.0.0.1 --min-rate 4000
